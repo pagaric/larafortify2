@@ -13,7 +13,7 @@
         </div>
     @endif
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
         <div>
@@ -34,6 +34,11 @@
         <div>
             <label>{{ __('Confirmer le mot de passe') }}</label>
             <input type="password" name="password_confirmation" required autocomplete="new-password" />
+        </div>
+
+        <div>
+            <label>{{ __('Avatar') }}</label>
+            <input type="file" name="avatar" size=50/>
         </div>
 
         <a href="{{ route('login') }}">

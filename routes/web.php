@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImgController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +30,10 @@ Route::get('/afterlogout', function(){
 Route::get('home', function(){
     return view('home');
 })->middleware('auth');
+
+Route::get('/img', [ImgController::class, 'index'])->name('img.index');
+Route::post('/img', [ImgController::class, 'store'])->name('img.store');
+
+// Route::get('/link', function(){
+//     Artisan::call('storage:link');
+// });
